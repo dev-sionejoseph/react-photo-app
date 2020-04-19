@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Comment from './Comment'
 
 export default class AddComment extends Component {
     constructor(props) {
@@ -7,7 +8,7 @@ export default class AddComment extends Component {
         this.state = {
           submitted: false,
           currentComment: '',
-          comments:[],
+          comments:[]
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -17,7 +18,7 @@ export default class AddComment extends Component {
     handleChange(event) {
 
         this.setState({
-            [currentComment]: event.target.value,
+            currentComment: event.target.value,
         })
     }
 
@@ -33,11 +34,19 @@ export default class AddComment extends Component {
 
     render() {
         return (
-            <div id="addCommentWrap">
-                <label id="commentLabel">Add a Comment:</label>
-                <textarea id="commentInput" placeholder="Write your message here" value={this.state.currentComment}/>
-                <button type="submit" onClick={handleSubmit}></button>
+            <div id="commentSectionWrap">
+                <div id="addCommentWrap">
+                    <label id="commentLabel">Add a Comment:</label>
+                    <textarea id="commentInput" placeholder="Write your message here" onChange={this.handleChange} value={this.state.currentComment}/>
+                    <button type="submit" onClick={this.handleSubmit}></button>
+                </div>
+                <div id="commentViewerWrap">
+                    <Comment />
+                    <Comment />
+                    <Comment />
+                </div>
             </div>
+
         )
     }
 }
