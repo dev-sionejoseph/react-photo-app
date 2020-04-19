@@ -33,8 +33,8 @@ export default class UserActions extends Component {
     render() {
         return (
             <div>
-                <button id="likeButton" onClick={this.onLike}></button>
-                <button id="favoriteButton" onClick={this.onFavorite}></button>
+                <button id="likeButton" style={{backgroundColor: this.state.color}} onClick={this.onLike}></button>
+                <button id="favoriteButton" style={{backgroundColor: this.state.color}} onClick={this.onFavorite}></button>
             </div>
         )
     }
